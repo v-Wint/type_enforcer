@@ -43,10 +43,12 @@ T = TypeVar('T')
 
 
 class Container(Generic[T]):
-    def __init__(self, value: T):
+    @annotated(enforced=True)
+    def __init__(self: Any, value: T) -> None:
         self.value = value
 
-    def get_value(self) -> T:
+    @annotated(enforced=True)
+    def get_value(self: Any) -> T:
         return self.value
 
 
